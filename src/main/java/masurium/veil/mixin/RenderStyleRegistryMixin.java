@@ -1,6 +1,6 @@
-package marionette.veil.mixin;
+package masurium.veil.mixin;
 
-import marionette.bot.Bot;
+import masurium.bot.Bot;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -31,14 +31,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class RenderStyleRegistryMixin {
 
     @Inject(method = "initRenderStyles", at = @At("HEAD"), cancellable = true)
-    private static void marionette$noGpuNoStyles(CallbackInfo ci) {
+    private static void masurium$noGpuNoStyles(CallbackInfo ci) {
         if (Bot.headless()) {
             ci.cancel();
         }
     }
 
     @Inject(method = "freeRenderStyles", at = @At("HEAD"), cancellable = true)
-    private static void marionette$nothingToFree(CallbackInfo ci) {
+    private static void masurium$nothingToFree(CallbackInfo ci) {
         if (Bot.headless()) {
             ci.cancel();
         }

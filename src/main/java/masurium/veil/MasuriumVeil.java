@@ -1,7 +1,7 @@
-package marionette.veil;
+package masurium.veil;
 
 import com.mojang.logging.LogUtils;
-import marionette.bot.Bot;
+import masurium.bot.Bot;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.fml.common.Mod;
 import org.slf4j.Logger;
@@ -11,17 +11,17 @@ import org.slf4j.Logger;
  * work is in the mixins, which apply when Veil's classes load, and only cut when the
  * client is a bot with no screen.
  */
-@Mod(value = MarionetteVeil.ID, dist = Dist.CLIENT)
-public class MarionetteVeil {
+@Mod(value = MasuriumVeil.ID, dist = Dist.CLIENT)
+public class MasuriumVeil {
 
-    public static final String ID = "marionette_veil";
+    public static final String ID = "masurium_veil";
     private static final Logger LOG = LogUtils.getLogger();
 
-    public MarionetteVeil() {
+    public MasuriumVeil() {
         if (Bot.headless()) {
-            LOG.info("[marionette-veil] headless bot: Veil keeps its hands off the GPU");
+            LOG.info("[masurium-veil] headless bot: Veil keeps its hands off the GPU");
         } else {
-            LOG.info("[marionette-veil] a screen is present: Veil runs as usual");
+            LOG.info("[masurium-veil] a screen is present: Veil runs as usual");
         }
     }
 }
