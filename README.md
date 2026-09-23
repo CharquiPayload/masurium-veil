@@ -17,10 +17,14 @@ it to. A player, or a bot with a window, gets Veil untouched. In a pack without
 Veil the jar does nothing.
 
 ```bash
-(cd ../../mod && ./gradlew build)   # the core first: the add-on compiles against it
-./gradlew build                     # build/libs/masurium-veil-<version>.jar
-../../launcher/masurium.py deploy-mod build/libs/masurium-veil-*.jar
+./gradlew build                            # build/libs/masurium-veil-<version>.jar
+masurium deploy-mod build/libs/masurium-veil-*.jar
 ```
+
+It compiles against the [Masurium](https://github.com/CharquiPayload/masurium)
+core, the release named in `build.gradle`: the first build downloads its jar and
+checks it against its checksum. `./gradlew build -Pcore=<a masurium jar>` builds
+against another, a core of your own for one.
 
 The jar goes in `shared/mods/`, with the core: every bot links it. It is client
 side only; the server does not need it and does not mind it.
